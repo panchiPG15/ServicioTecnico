@@ -7,7 +7,7 @@
 <body>
     <center>
         <form method="post">
-        <?php 
+        <?php /** 
         if(isset($_POST['btnEliminar'])){
             include("funciones.php");
             $cnn = Conectar();
@@ -24,7 +24,7 @@
                 $ = $row[5];
                 $ = $row[6];
             }
-        }
+        } */
         ?>
 
         <table border="0">
@@ -55,13 +55,13 @@
             </tr>
             <tr>
                 <td>Fono</td>
-                <td><input type="text" name="txtFon" value="<?php echo variable ?>" size="7"></td>
+                <td><input type="text" name="txtFon" value="<?php // echo $variable ?>" size="7"></td>
             </tr>
         </table>
         <button type="submit" name="btnEliminarDef" value="">Eliminar</button>
     </form>
 
-    <?php
+    <?php /** 
     if(isset($_POST['btnEliminarDef'])){
         include("funciones.php");
         $cnn = Conectar();
@@ -69,12 +69,12 @@
        // $sql=;
         
         if(mysqli_query($cnn, $sql)){
-            echo "<script>alert('Sus datos se actualizaron correctamente')</script>";
+            echo "<script>alert(<button type='submit'')</script>";
         }
         else {
             echo "<script>alert('Hubo un error al actualizar los datos')</script>";
         }
-    }
+    } */
     ?>
     </center>    
 </body>
