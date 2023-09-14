@@ -4,7 +4,7 @@
         if(!($cnn = mysqli_connect("localhost","root",""))){
             exit();
         }
-        if(! mysqli_select_db($cnn,"servicioTecnico")){
+        if(! mysqli_select_db($cnn,"serviciotecnico")){
             exit();
         }
         return $cnn;

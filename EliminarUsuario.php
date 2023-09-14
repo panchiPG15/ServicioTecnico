@@ -1,81 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Continuar Eliminando</title>
-</head>
+    <head>
+        <title>Continuar Eliminando</title>
+    </head>
 
-<body>
-    <center>
-        <form method="post">
-        <?php /** 
-        if(isset($_POST['btnEliminar'])){
+    <body>
+        <center>
+            <h1>Datos del Trabajador</h1>
+            <form method="post">
+            <?php  
+            
+            
+            if(isset($_POST['btnEliminar'])){
             include("funciones.php");
             $cnn = Conectar();
             $rut = $_POST['RutEliminar'];
-            $sql=;
-            $rs = mysqli_query ($cnn, $sql);
+                    
 
-            if($row = mysqli_fetch_array($rs)){
-                $ = $row[0];
-                $ = $row[1];
-                $ = $row[2];
-                $ = $row[3];
-                $ = $row[4];
-                $ = $row[5];
-                $ = $row[6];
+                $sql="select * from empleados where(Rut='$rut')";
+                $rs = mysqli_query ($cnn, $sql);
+                echo "<table align='center' border='10'>";
+                echo "<b><h3><tr align='center'>";
+                echo "<td>Rut</td>";
+                echo "<td>Nombre</td>";
+                echo "<td>Apellido</td>";
+                echo "<td>Fono</td>";
+                echo "<td>Cargo</td>";
+                echo "<td>Correo</td>";
+                echo "<td>Sexo</td>";
+                echo "<td>Usuario</td>";
+                echo "</h3></tr>";
+
+                while($row = mysqli_fetch_array($rs))
+                {
+                    echo "<tr>";
+                    echo "<td>$row[0]</td>";
+                    echo "<td>$row[1]</td>";
+                    echo "<td>$row[2]</td>";
+                    echo "<td>$row[3]</td>";
+                    echo "<td>$row[4]</td>";
+                    echo "<td>$row[5]</td>";
+                    echo "<td>$row[6]</td>";
+                    echo "<td>$row[7]</td>";
+                    echo "</tr>";
+                    echo "</table>";
+                }
             }
-        } */
-        ?>
+                ?>
 
-        <table border="0">
-            <tr>
-                <td>Nombre</td>
-                <td><input type="text" name="txtRut" value="<?php echo $rut; ?>" size="7"></td>
-            </tr>
-            <tr>
-                <td>Nombre</td>
-                <td><input type="text" name="txtNom" value="<?php echo $Nom; ?>" size="7"></td>
-            </tr>
-            <tr>
-                <td>Apellido</td>
-                <td><input type="text" name="txtApe" value="<?php echo $Ape; ?>" size="7"></td>
-            </tr>
-            <tr>
-                <td>Fecha de nacimiento</td>
-                <td><input type="date" name="Fnac" value="<?php echo $fnac; ?>" size="7"></td>
-            </tr>
-            <tr>
-                <td>Sexo</td>
-                <td>
-                    <select name="Sexo">
-                        <option value="Masculino" <?php if($Sex == 'Masculino') echo 'selected'; ?>>Masculino</option>
-                        <option value="Femenino" <?php if($Sex == 'Femenino') echo 'selected'; ?>>Femenino</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Fono</td>
-                <td><input type="text" name="txtFon" value="<?php // echo $variable ?>" size="7"></td>
-            </tr>
-        </table>
-        <button type="submit" name="btnEliminarDef" value="">Eliminar</button>
-    </form>
 
-    <?php /** 
-    if(isset($_POST['btnEliminarDef'])){
-        include("funciones.php");
-        $cnn = Conectar();
+            <input type="submit" name="btnEliminar2" value="Eliminar">
 
-       // $sql=;
-        
-        if(mysqli_query($cnn, $sql)){
-            echo "<script>alert(<button type='submit'')</script>";
-        }
-        else {
-            echo "<script>alert('Hubo un error al actualizar los datos')</script>";
-        }
-    } */
-    ?>
-    </center>    
-</body>
+            <?php 
+            
+            if(isset($_POST['btnEliminar2'])){
+                $sql1 = "DELETE FROM empleados WHERE(Rut ='$rut')";
+                mysqli_query($cnn,$sql1);
+                echo $sql1;
+                echo "<script>alert('Se ha eliminado al usuario $rut')</script>";
+            }  
+            
+            ?>
+            
+            </form>
+        </center>    
+    </body>
 </html>

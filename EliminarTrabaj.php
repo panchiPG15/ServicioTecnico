@@ -11,7 +11,7 @@
             Desvincular trabajador
         </h1>
 
-        <form action="EliminarUsuario.php" method="post">
+        <form action="EliminarUsuario2.php" method="POST">
             <h3>Ingrese el rut de la persona que desea desvincular</h3>
                 Rut<br>
                 <input type="text" name="RutEliminar" value="" size="10">
@@ -19,21 +19,24 @@
                 <button type="submit" name="btnEliminar">Eliminar</button>
                 <button type="submit" name="btnCancel"><a href="mainAdmin.php">Cancelar</a></button>
                 <?php error_reporting(0) ?>
-            <?php /**
-               include("funciones.php");
+            <?php 
+               include("Funciones.php");
                  $cnn = Conectar();
+                 if($_POST['btnEliminar']){
                 $rut = $_POST['txtRut'];
-                $sql
+                $sql = "SELECT * FROM empleados WHERE(Rut='$rutEliminar')";
                 $rs = mysqli_query ($cnn,$sql);
 
                 if($row = mysqli_fetch_array($rs)){
-                    $ = $row[1];
-                    $ = $row[2];
-                    $ = $row[3];
-                    $ = $row[4];
-                    $ = $row[5];
-                    $ = $row[6];
-                } */
+                    $Nombre = $row[1];
+                    $Apellido = $row[2];
+                    $Fono = $row[3];
+                    $Cargo = $row[4];
+                    $Correo = $row[5];
+                    $Sexo = $row[6];
+                    $Usuario = $row[7];
+                }
+            }
                     ?>
         </form>
     </center>

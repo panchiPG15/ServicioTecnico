@@ -11,8 +11,13 @@
         <div><table border="1" cellpadding="10px">
             <div><tr>
                 <td>
-                    Marca<input type="text" name="txtMarca" value="" size="10">
-                    <button type="submit" name="buscar" value="Buscar" size="4"> Buscar</button></td>
+                    Marca<select name="SelMarca">
+                        <option value="Apol">Apol</option>
+                        <option value="Hvp">Hvp</option>
+                        <option value="Linu">Linu</option>
+                        <option value="Lenuvo">Lenuvo</option>
+                    </select>
+
                 <td>Modelo<input type="text" name="txtModelo" value="" size="10"></td>
             </tr></div>
             <div><tr>
@@ -31,49 +36,66 @@
     <table>
         <div><tr>
             <td>Bateria  </td>
-            <td>    <input type="radio" name="raBatery" value="si"/>
-                    <input type="radio" name="raBatery" value="no"/>
+            <td>    <input type="radio" name="raBatery" value="si"/>Si
+                    <input type="radio" name="raBatery" value="no"/>No
             </td>
         </tr></div>
         <div><tr>
             <td>
                 Cargador    </td>
-                <td>    <input type="radio" name="raCargador" value="si"/>
-                        <input type="radio" name="raCargador" value="no"/>
+                <td>    <input type="radio" name="raCargador" value="si"/>Si
+                        <input type="radio" name="raCargador" value="no"/>No
             </td>
         </tr></div>
        <div> <tr>
-            <td>Daños en pantalla </td>
-            <td>        <input type="radio" name="raPantalla" value="si"/>
-                        <input type="radio" name="raPantalla" value="no"/>
-            </td>
-        </tr></div>
-    </table></div>
+                <td>Daños en pantalla </td>
+                <td>        <input type="radio" name="raPantalla" value="si"/>Si
+                            <input type="radio" name="raPantalla" value="no"/>No
+                </td>
+            </tr>
+        </div>
+    </table>
+</div>
+            <div>
+                <tr>
+                    <td>Dueño</td>
+                    <td><input type="text" name="RutDueno" value=""></td>
+                </tr>
+            </div>
 <h4>
         <div>
-        <button type="submit" name="btnCargar" value="Cargar datos" size="10">Cargar datos</button>
+        <button type="submit" name="btnCargar" value="Cargar" size="10">Cargar datos</button>
         <button type="submit" name="btnCanc" value="Cancelar" size="10"><a href="MainRecep.php">Cancelar</a></button>
         </div>
 </div>
-   <?php // error_reporting(0) ?>
+   <?php  ?>
     <div><?php
-    include ("Funciones.php");
-    $cnn = Conectar();
-    if($_POST['btnCargar']=="Cargar datos"){
 
-    $marca = $_POST['txtMarca'];
+    include("Funciones.php");
+    $cnn = Conectar();
+
+    if($_POST['btnCargar']=="Cargar"){
+
+    $marca = $_POST['SelMarca'];
     $modelo = $_POST['txtModelo'];
     $color = $_POST['Color'];
     $tamaño = $_POST['txtTamaño'];
-            //Input tipo tipo radio
-    $bateria = $POST['raBatery'];
+    
+
+            //Input tipo radio
+    $bateria = $_POST['raBatery'];
     $cargador = $_POST['raCargador'];
-    $DañosPantalla = $_POST['raPantalla'];
+    $DaPantalla = $_POST['raPantalla'];
 
-    $sql = "insert into equipos (";
-    }
+    $Dueno = $_POST['RutDueno'];
 
-    ?></div>
+    $sql = "INSERT INTO equipos VALUES('','$marca','$Dueno','$modelo','$color','$tamaño','$bateria','$cargador','$DaPantalla','false')";
+    echo $sql;
+
+    mysqli_query($cnn,$sql);
+    } 
+        echo "<script>alert('Los datos se han ingresado correctamente')</script>";
+    ?>
     
     </form>
     </center>

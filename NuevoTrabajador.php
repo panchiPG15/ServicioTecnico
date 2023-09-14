@@ -69,23 +69,45 @@
             <div>
                 <tr>
                     <td>Usuario</td>
-                    <td><input type="text" name="txtUser" value="<?php echo $rutTrab ?>" readonly></td>
+                    <td><input type="text" name="txtUser" value=""></td>
                 </tr>
             </div>
+            
             <div>
                 <tr>
-                    <td>
-                        Clave
-                    </td>
-                    <td>
-                        <input type="text" name="Passw" value="<?php echo $rutTrab,$apeTrab?>"size="10" readonly>
-                    </td>
+                    <td>Clave</td>
+                    <td><input type="password" name="clave" value=""></td>
                 </tr>
             </div>
-                
+
         </table></div>
-        <button type="submit" name="btnAgregar" value="Agregar" size="10">Agregar</button>
+        <input type="submit" name="btnAgregar" value="Agregar" size="10">
         <button type="submit" name="btnCancel" value="Cancelar" size="10"><a href="mainAdmin.php">Cancelar</a></button>
+
+        <?php   
+            include("Funciones.php");
+            $cnn = Conectar();
+            if($_POST['btnAgregar']=="Agregar") {
+                $rutTrab = $_POST['txtRutTrab'];
+                $nomTrab = $_POST['txtNomTrab'];
+                $apeTrab = $_POST['txtApeTrab'];
+                $fonoTrab = $_POST['txtFonoTrab'];
+                $cargo = $_POST['Cargo'];
+                $correo = $_POST['txtCorreoTrab'];
+                $sexo = $_POST['Sexo'];
+                $Dueno = $_post['RutDueño'];
+                $usuario = $_POST['txtUser'];
+                $clave = $_POST['clave'];
+
+                $sql = "INSERT INTO empleados VALUES('$rutTrab','$nomTrab','$apeTrab','$fonoTrab','$cargo','$correo','$sexo','$usuario','$clave')";
+                mysqli_query($cnn,$sql); 
+             
+            
+                echo "<script>alert('Se ha agregado a un nuevo trajador')</script>" ;   
+            }
+        
+        ?>
+
     </form>
     </center>
 </body>
