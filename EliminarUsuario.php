@@ -17,7 +17,7 @@
             $rut = $_POST['RutEliminar'];
                     
 
-                $sql="select * from empleados where(Rut='$rut')";
+                $sql="SELECT * from empleados where(Rut='$rut')";
                 $rs = mysqli_query ($cnn, $sql);
                 echo "<table align='center' border='10'>";
                 echo "<b><h3><tr align='center'>";

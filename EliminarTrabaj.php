@@ -22,7 +22,6 @@
             <?php 
                include("Funciones.php");
                  $cnn = Conectar();
-                 if($_POST['btnEliminar']){
                 $rut = $_POST['txtRut'];
                 $sql = "SELECT * FROM empleados WHERE(Rut='$rutEliminar')";
                 $rs = mysqli_query ($cnn,$sql);
@@ -36,7 +35,6 @@
                     $Sexo = $row[6];
                     $Usuario = $row[7];
                 }
-            }
                     ?>
         </form>
     </center>
