@@ -16,7 +16,7 @@
                 
                 $rut1 = $_POST['RutEliminar'];
                 //$sql=;
-                $rs = mysqli_query ($cnn, "select * from empleados where(Rut='$rut1')");
+                $rs = mysqli_query ($cnn, "SELECT * from empleados where(Rut='$rut1')");
                 if($row = mysqli_fetch_array($rs)){
                     $rut = $row[0];
                     $Nombre = $row[1];
@@ -71,17 +71,19 @@
             </tr>
         </table>
         <button type="submit" name="btnEliminarDef" value="">Eliminar</button>
-        </form>
     <?php 
+    include("Funciones.php");
      if(isset($_POST['btnEliminarDef'])){
-                    $sql1 = "DELETE FROM empleados WHERE(Rut ='$rut')";
-                    mysqli_query($cnn,$sql1);
+                    $rut1=$_POST['txtRut'];
+                    $sql1 = "DELETE FROM empleados WHERE(Rut ='$rut1')";
+                    mysqli_query($cnn, $sql1);
                     echo $sql1;
                     echo "<script>alert('Se ha eliminado al usuario $rut1')</script>";
                 }  
             
     ?>
-    
+        </form>
+
     </center>    
 </body>
 </html>

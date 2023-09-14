@@ -54,6 +54,7 @@
             <?php 
             
             if(isset($_POST['btnEliminar2'])){
+                include("Funciones.php");
                 $sql1 = "DELETE FROM empleados WHERE(Rut ='$rut')";
                 mysqli_query($cnn,$sql1);
                 echo $sql1;

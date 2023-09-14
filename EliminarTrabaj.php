@@ -11,7 +11,7 @@
             Desvincular trabajador
         </h1>
 
-        <form action="EliminarUsuario2.php" method="POST">
+        <form action="EliminarUsuario.php" method="POST">
             <h3>Ingrese el rut de la persona que desea desvincular</h3>
                 Rut<br>
                 <input type="text" name="RutEliminar" value="" size="10">
