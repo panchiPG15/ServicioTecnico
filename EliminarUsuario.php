@@ -22,7 +22,7 @@
                 echo "<table align='center' border='10'>";
                 echo "<b><h3><tr align='center'>";
                 echo "<td>Rut</td>";
-                echo "<td>Nombre</td>";
+                echo "<td>Nom</td>";
                 echo "<td>Apellido</td>";
                 echo "<td>Fono</td>";
                 echo "<td>Cargo</td>";
